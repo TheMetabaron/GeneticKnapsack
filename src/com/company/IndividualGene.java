@@ -17,7 +17,8 @@ public class IndividualGene {
 
     public IndividualGene(IndividualGene geneToCopy){
         knapsack = geneToCopy.knapsack;
-        bitVector = geneToCopy.bitVector;
+        bitVector = new BitSet();
+        bitVector.or(geneToCopy.bitVector);
         value = geneToCopy.value;
     }
 
