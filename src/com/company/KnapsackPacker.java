@@ -16,12 +16,14 @@ public class KnapsackPacker {
 
     private Knapsack knapsack;
 
+
+
     private static class IndividualGeneComparator implements Comparator<IndividualGene>{
 
         @Override
         public int compare(IndividualGene o1, IndividualGene o2) {
-            o1.recalculateValue();
-            o2.recalculateValue();
+            //o1.recalculateValue();
+            //o2.recalculateValue();
             return o1.value - o2.value;
         }
     }
@@ -71,34 +73,10 @@ public class KnapsackPacker {
             //kill off two weakest members of the population
             population.sort(geneComparator);
 
-            ListIterator<IndividualGene> iterator = population.listIterator();
-
             //remove first two in sorted list
             population.remove(1);
             population.remove(0);
-//DEBUG
-            iterator = population.listIterator();
-            System.out.println("\nIteration " + i + " list of " + population.size() + " genes:");
-            while(iterator.hasNext()) {
-                iterator.next().print();
-            }
-
-            child1 = null;
-            child2 = null;
         }
-
-        /*   DEBUG OF BIT VECTORS
-        ListIterator<BitSet> iterator = population.listIterator();
-        while(iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-        BitSet test = new BitSet(4);
-        System.out.println("Test: " + test);
-        test.set(0, true);
-        System.out.println("Test: " + test);
-        test.set(3, true);
-        System.out.println("Test: " + test);
-        */
         return result;
     }
 
@@ -111,5 +89,20 @@ public class KnapsackPacker {
         }
         aGene.recalculateValue();
         return aGene;
+    }
+
+    public void result() {
+        IndividualGene result = population.get(populationSize - 1);
+        System.out.println("\nBest Fit:\n");
+        result.print();
+        System.out.println();
+    }
+
+    public void listPrinter (int iteration){
+        ListIterator<IndividualGene> iterator = population.listIterator();
+        System.out.println("\nIteration " + iteration + " list of " + population.size() + " genes:");
+        while(iterator.hasNext()) {
+            iterator.next().print();
+        }
     }
 }

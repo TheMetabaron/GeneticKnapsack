@@ -7,5 +7,6 @@ public class Main {
 
         KnapsackPacker knapsackPacker = new KnapsackPacker();
         knapsackPacker.geneticAlgorithm(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        knapsackPacker.result();
     }
 }

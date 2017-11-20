@@ -37,7 +37,7 @@ public class IndividualGene {
     }
 
     public void print(){
-        System.out.println("BitSet: " + this.bitVector + "  \t\tValue: " + this.value + " \tTotal Weight: " + this.totalWeight());
+        System.out.println("Item Indexes: " + this.bitVector + "  \t\tTotal Value: " + this.value + " \tTotal Weight: " + this.totalWeight());
     }
 
     private int totalWeight() {
